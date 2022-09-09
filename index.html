@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
   <title>Frontend Mentor | Interactive card details form</title>
   <style>
-    .attribution { font-size: 11px; text-align: center; }
+    .attribution { font-size: 11px; text-align: center;}
     .attribution a { color: hsl(228, 45%, 44%); }
   </style>
 </head>
@@ -27,7 +27,7 @@
             <img class="logo" src="./images/card-logo.svg" alt="card's logo">
             <div class="card-info">
               <p class="card-number"><span class="number">0000</span> <span class="number">0000</span> <span class="number">0000</span> <span class="number">0000</span></p>
-              <div class="card-name"><span class="first">Jane Appleseed</span> <span class="second">00/00</span></div>
+              <div class="card-name"><span class="first">Jane Appleseed</span> <span class="second"><span class="month">00</span>/<span class="year">00</span></div>
             </div>
           </div>
         </div>
@@ -37,46 +37,75 @@
     <div class="inputs">
 
       <div class="input">
-
-        <form>
-          <label for="name">Cardholder Name</label><br>
-          <input type="text" id="name" placeholder="e.g. Jane Appleseed"><br>
+        <form id="form">
+          <label>Cardholder Name</label><br>
+          <div class="div-container">
+          <div class="input-container">
+            <input id="name" type="text" value="" placeholder="e.g. Jane Appleseed" maxlength="20" pattern="^[a-zA-Z]{3, 20}$"><br>
+          </div>
+          <div class="error"> </div>
+        </div>
+          
 
           <label for="card-number">Card Number</label><br>
-          <input type="text" id="card-number" placeholder="e.g. 1234 5678 9123 0000"><br>
+          <div class="div-container">
+          <div class="input-container">
+            <input type="text" id="card-number" placeholder="e.g. 1234 5678 9123 0000" maxlength="16" pattern="\d{16}"><br>
+          </div>
+          <div class="error"> </div>
+          </div>
 
           <div class="label-div">
             <label class="expiration" for="expiration">Exp. Date (MM/YY)</label><label  class="code" for="cvc">CVC</label><br>
           </div>
 
           <div class="date-container">
-            <input class="date" type="text" placeholder="MM">
-            <input class="date" type="text" placeholder="YY">
-            <input class="date" type="text" placeholder="e.g. 123"><br>
+            <div class="date-1">
+              <div class="input-container">
+                <input id="mm" class="date" type="text" placeholder="MM" maxlength="2" pattern="[0-1][0-9]">
+              </div>
+              <div class="error"> </div>
+            </div>
+
+            <div class="date-1 date-yy">
+              <div class="input-container">
+                <input id="yy" class="date" type="text" placeholder="YY" maxlength="2" pattern="\d\d">
+              </div>
+              <div class="error" style="opacity: 0;"> </div>
+            </div>
+
+            <div class="date-2">
+              <div class="input-container">
+                <input id="cvc" class="date" type="text" placeholder="e.g. 123" maxlength="3" pattern="\d{3}"><br>
+              </div>
+              <div class="error"> </div>
+            </div>
           </div>
 
-          <input type="submit" value="Confirm">
+          <input id="btn-submit" type="submit" value="Confirm">
         </form>
         
       
       </div>
 
       <div class="completed">
-        <img src="./images/icon-complete.svg" alt="icon complete">
-        <h2>Thank you!</h2>
-        <p>We've added your card details</p>
-        <button>Continue</button>
+        <img class="common" src="./images/icon-complete.svg" alt="icon complete">
+        <h2 class="common">Thank you!</h2>
+        <p class="text-completed common">We've added your card details</p>
+        <button type="button" class="btn-continue"><span class="continue">Continue</span></button>
       </div>
     </div>
 
+    
+
   </div>
 
+  <footer class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="https://www.linkedin.com/in/mamadou-maikoke-traore-16b262225/" target="_blank">Maikoke</a>.
+  </footer>
+
   
-
-
-  <!-- <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div> -->
+  <script src="./script.js"></script>
 </body>
 </html>

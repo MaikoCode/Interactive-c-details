@@ -2,6 +2,7 @@
     --clr-red : hsl(0, 100%, 66%);
     --clr-gradient-start: hsl(249, 99%, 64%);
     --clr-gradient-end: hsl(278, 94%, 30%);
+    --clr-gradient: linear-gradient(hsl(249, 99%, 64%), hsl(278, 94%, 30%));
     --clr-white: hsl(0, 0%, 100%);
 
 
@@ -22,7 +23,6 @@ body{
     font-size: 1.125rem;
     background-color: var(--clr-white);
     background-size: cover;
-    
 }
 
 .cards-container{
@@ -67,7 +67,6 @@ body{
     justify-content: space-between;
     text-transform: uppercase;
     font-size: 14px;
-    /* padding-bottom: 80px; */
 }
 
 .card-box{
@@ -85,7 +84,6 @@ body{
     height: 200px;
     width: 320px;
     border-radius: 10px;
-
 }
 
 .cvc-container{
@@ -96,7 +94,6 @@ body{
     position: absolute;
     left: 75%;
     transform: translateY(320%);
-
 }
 
 .label-div{
@@ -108,30 +105,28 @@ body{
 .expiration{
     position: absolute;
     left: 0;
-
 }
 
 .code{
     position: absolute;
     right: 42%;
-
 }
 
 label{
     text-transform: uppercase;
     font-size: 1rem;
     font-weight: 500;
-    /* margin-right: 10%; */
 }
 
 .inputs{
-    
     margin-bottom: 50px;
 }
 
 input{
     color: var(--clr-dark-grayish-violet);
+    
 }
+
 
 input::placeholder{
     font-weight: 500;
@@ -143,30 +138,52 @@ input::placeholder{
 input::-webkit-input-placeholder{
     font-weight: 500;
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 1rem;
-
+    font-size: 1.2rem;
 }
 
 input::-moz-placeholder{
     font-weight: 500;
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 1rem;
+    font-size: 1.2rem;
 }
-
 
 .input{
     padding-left: 4%;
 }
 
-input[type=text] {
-    width: 90%;
+/* Modifier le nouveau contenu dans le desktop */
+
+input[type=text], input[type=number] {
+    width: 100%;
     padding: 15px 20px;
-    margin: 8px 0;
+    margin: 0;
     box-sizing: border-box;
-    border-radius: 10px;
+    border-radius: 7px;
     border: 1px solid var(--clr-light-grayish-violet);
-    margin-bottom: 15px;
+    font-weight: 500;
+    color: black;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1rem;
+    outline: none;
   }
+
+
+.input-container{
+    width: 100%;
+    border-radius: 9px;
+    background-color: blue;
+    background-image: linear-gradient(to right, hsl(249, 99%, 64%), hsl(278, 94%, 30%));
+    margin-bottom: 5px;
+    padding: 0;
+}
+
+.div-container{
+    width: 90%;
+}
+
+.date-1 .input-container, .date-2 .input-container{
+    width: 100%;
+}
 
 .date-container{
     width: 90%;
@@ -174,11 +191,12 @@ input[type=text] {
     justify-content: space-between;
 }
 
-.date-container > input[type=text]{
-    margin: 5px;
-    width: 25%;
-    margin-bottom: 35px;
+.date-1{
+    margin-right: 10px;
+}
 
+.date-yy{
+    margin-right: 15px;
 }
 
 input[type=submit]{
@@ -186,13 +204,27 @@ input[type=submit]{
     color: var(--clr-white);
     width: 90%;
     padding: 15px;
-    border-radius: 12px;
+    border-radius: 10px;
     font-weight: 500;
     font-family: 'Space Grotesk', sans-serif;
     font-size: 1rem;
+    cursor: pointer;
 }
 
-.date-container > input[type=text]:nth-child(3){
+input[type=submit]{
+    padding: 8px;
+    margin-top: 15px;
+}
+
+.date-container input[type=text]{
+    width: 100%;
+}
+
+.date-container > .date-1{
+    width: 25%;
+}
+
+.date-container > .date-2{
     width: 50%;
 }
 
@@ -200,7 +232,174 @@ input[type=submit]{
     margin-left: 7px;
 }
 
+.error{
+    color: var(--clr-red);
+    font-size: 14px;
+    font-size: 0.75rem;
+    margin-bottom: 15px;
+    white-space: nowrap;
+}
 
 .completed{
     display: none;
+    text-align: center;
+    line-height: 2;
+}
+
+form{
+    display: block;
+}
+
+
+.completed > img{
+    width: 30%;
+    height: 30%;
+    max-width: 100px;
+
+}
+
+.completed h2{
+    text-transform: uppercase;
+    font-size: 1.125rem;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+.common{
+    font-size: 0.875rem;
+}
+
+.text-completed{
+    margin-bottom: 25px;
+    color: var(--clr-dark-grayish-violet);
+}
+
+.btn-continue{
+    
+    background-color: var(--clr-very-dark-violet);
+    color: var(--clr-white);
+    width: 80%;
+    padding: 15px 25px;
+    /* padding-left: 50%; */
+    /* transform: translateX(-50%); */
+    border-radius: 10px;
+    font-weight: 500;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center; 
+    
+}
+
+.continue{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* width: 100%; */
+
+    
+    /* margin-right: 75px; */
+}
+/* Desktop version */
+
+@media only screen and (min-width: 1000px){
+    .container{
+        display: flex;
+    }
+    .cards-container{
+        position: relative;
+        width: 30%;
+        background-image: url(./images/bg-main-desktop.png);
+        background-size: cover;
+        min-height: 100vh;
+        height: 100%;
+        margin-bottom: 0;
+    }
+
+    .div-container{
+        width: 100%;
+    }
+    .cards{
+        position: absolute;
+        top: 20%;
+        left: 30%;
+    }
+
+    .card-back{
+        position: absolute;
+        top: 0%;
+        left: 50%;
+        transform: translateY(165%);
+    }
+    .inputs{
+        position: relative;
+        width: 70%;
+        margin-bottom: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        /* padding-left: 20% ;
+        padding-top: 10%; */
+        /* background-color: blue; */
+
+        /* Il faut qu'on ajoute ces paddings avant l'envoi du formulaire */
+    }
+
+    .completed{
+        /* background-color: red; */
+        position: absolute;
+        right:40%;
+    }
+
+    .btn-continue{
+        padding: 7px 100px;
+    }
+
+    /* .input{
+        background-color: purple;
+    } */
+
+    input[type=text], input[type=number] {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        border-radius: 7px;
+        border: 1px solid var(--clr-light-grayish-violet);
+      }
+      input[type=submit]{
+        width: 60%;
+    }
+
+      .date-container{
+        width: 60%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .input-container{
+        width: 60%;
+    }
+
+
+    input::placeholder{
+        font-size: 0.875rem;
+    }
+    
+    input::-webkit-input-placeholder{
+        font-size: 0.875rem;
+    }
+    
+    input::-moz-placeholder{
+        font-size: 0.875rem;
+    }
+
+    label{
+        font-size: 0.875rem;
+    }
+
+    .code{
+        position: absolute;
+        right: 63%;
+    }
 }
