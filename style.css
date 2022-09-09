@@ -339,8 +339,8 @@ form{
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        /* padding-left: 20% ;
-        padding-top: 10%; */
+        padding-left: 20% ;
+        padding-top: 10%;
         /* background-color: blue; */
 
         /* Il faut qu'on ajoute ces paddings avant l'envoi du formulaire */
