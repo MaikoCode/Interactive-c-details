@@ -23,6 +23,7 @@ let year = document.querySelector(".year");
 let numbers = document.querySelectorAll(".number");
 let cardNumberDom = document.querySelector(".card-number");
 let btnSubmit = id("btn-submit");
+let btnContinue = document.querySelector(".btn-continue");
 let completed = document.querySelector(".completed");
 
 
@@ -34,6 +35,14 @@ inputObject.push(yy);
 inputObject.push(cvc);
 
 
+
+btnContinue.addEventListener("click", (e) => {
+
+    form.style.display = "block";
+    completed.style.display = "none";
+    location.reload();
+
+})
 
 
 // Animation for input focus
@@ -48,42 +57,9 @@ for(let i = 0; i < inputContainer.length; i++){
     inputs[i].addEventListener("blur", (e) => {
         e.preventDefault();
         inputContainer[i].style.padding = "0";
-        //inputs[i].style.border = "1px solid hsl(270, 3%, 87%)";
     });
 
 }
-
-
-// btnSubmit.addEventListener("click", (e) => {
-//     e.preventDefault();
-//     console.log(inputContainer[0]);
-//     let formGood = false;
-//     if(inputContainer[0].value.match("^[a-zA-Z]{3, 20}$")){
-//         formGood = true;
-//     }
-//     if(inputContainer[1].value.match("\d{16}")){
-//         formGood = true;
-//     }
-//     if(inputContainer[2].value.match("[0-1][0-2]")){
-//         formGood = true;
-//     }
-//     if(inputContainer[3].value.match("\d\d")){
-//         formGood = true;
-//     }
-//     if(inputContainer[4].value.match("\d{3}")){
-//         formGood = true;
-//         console.log("roulette");
-//     }
-
-//     if(formGood){
-//         form.style.display = "none";
-//         completed.style.display = "block";
-
-//     }else{
-//         form.style.display = "block";
-//         completed.style.display = "none";
-//     }
-// });
 
 // Cant't be blank
 form.addEventListener("submit", (e) => {
@@ -91,6 +67,33 @@ form.addEventListener("submit", (e) => {
     
     for(let i = 0; i < inputObject.length; i++){
         engine(inputObject[i], i, blank);
+    }
+
+    let formGood = true;
+      if(!inputObject[0].value.match("^[a-zA-Z ]{3,20}$")){
+            formGood = false;
+            console.log("input1");
+    }
+    if(!inputObject[1].value.trim().match("^[0-9 ]{19}$")){
+        formGood = false;
+        console.log("input2");
+    }
+    if(!inputObject[2].value.match("^(0?[1-9]|1[012])")){
+        formGood = false;
+        console.log("input3");
+    }
+    if(!inputObject[3].value.match("[0-9][0-9]")){
+        formGood = false;
+        console.log("input4");
+    }
+    if(!inputObject[4].value.match("[0-9]{3}")){
+        formGood = false;
+        console.log("input5");
+    }
+
+    if(formGood){
+        form.style.display = "none";
+        completed.style.display = "block";
     }
 
   });
@@ -119,9 +122,7 @@ let engine = (id, serial, message) => {
                 errorMsg[2].innerHTML = message;
             }
         }
-    }
-
-    
+    } 
     
 }
 
@@ -133,7 +134,6 @@ cvc.addEventListener("keyup", (e) => {
     }
     else{
         cvcDom.innerHTML = cvc.value;
-
     }
     
 });
@@ -157,7 +157,7 @@ mm.addEventListener("keyup", (e) => {
     else{
         month.innerHTML = mm.value;
     }
-})
+});
 
 
 
@@ -167,52 +167,27 @@ yy.addEventListener("keyup", (e) => {
         year.innerHTML = "00";
     }
     else{
-        year.innerHTML = yy.value
+        year.innerHTML = yy.value;
     }
 });
 
 
-btnSubmit.addEventListener("submit", (e) => {
+let counter = 0;
+cardNumber.addEventListener("keyup", (e) => {
     
+    if(!cardNumber.value.trim().length == 0){
+            if(counter%4 == 0 && cardNumber.value.trim().length < 16){
+                cardNumber.value += " ";
+            }
 
-});
+            len = cardNumber.value.trim().length;
+    }
 
-
-
-
-
-// let w = 0;
-// let p = 0;
-// cardNumber.addEventListener("keyup", (e) => {
-//     for(let i = 0; i < numbers.length; i++){
-//         if(cardNumber.value.trim() == "")
-//         numbers[i].innerHTML = "0000";
-//     }
-
-//     // let 
-//     // while(numbers[w].length != 3){
-//     //     numbers[w].innerHTML = cardNumber.value;
-//     // }
-
-// });
-
-// cardNumber.addEventListener("focus", (e) =>{
-//     e.preventDefault();
-//     for(let i = 0; i < numbers.length; i++){
-//         cardNumber.addEventListener("keyup", (k) => {
-//             k.preventDefault();
-//             for(let t = 0; t < numbers.length; t++){
-//                 if(cardNumber.value.trim() == "")
-//                 numbers[t].innerHTML = "0000";
-//             }
-//             cardNumber.addEventListener("keyup", (j) => {
-//                 j.preventDefault();
-//                 while(p < 4){
-//                 numbers[w].innerHTML = cardNumber.value;
-//                 p++;}
-//             });
-//             // numbers[w].innerHTML = cardNumber.value;
-//             w++;
-//         });
-//     }
-// });
+    if(cardNumber.value.trim() == ""){
+        cardNumberDom.innerHTML = "0000 0000 0000 0000";
+        counter = 0;
+    }else{
+        cardNumberDom.innerHTML = cardNumber.value;
+    }
+    counter++;
+})

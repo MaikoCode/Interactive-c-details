@@ -26,7 +26,7 @@
           <div class="card-face">
             <img class="logo" src="./images/card-logo.svg" alt="card's logo">
             <div class="card-info">
-              <p class="card-number"><span class="number">0000</span> <span class="number">0000</span> <span class="number">0000</span> <span class="number">0000</span></p>
+              <p class="card-number">0000 0000 0000 0000</p>
               <div class="card-name"><span class="first">Jane Appleseed</span> <span class="second"><span class="month">00</span>/<span class="year">00</span></div>
             </div>
           </div>
@@ -41,7 +41,7 @@
           <label>Cardholder Name</label><br>
           <div class="div-container">
           <div class="input-container">
-            <input id="name" type="text" value="" placeholder="e.g. Jane Appleseed" maxlength="20" pattern="^[a-zA-Z]{3, 20}$"><br>
+            <input id="name" type="text" value="" placeholder="e.g. Jane Appleseed" maxlength="20" pattern="^[a-zA-Z ]{3,20}$"><br>
           </div>
           <div class="error"> </div>
         </div>
@@ -50,7 +50,7 @@
           <label for="card-number">Card Number</label><br>
           <div class="div-container">
           <div class="input-container">
-            <input type="text" id="card-number" placeholder="e.g. 1234 5678 9123 0000" maxlength="16" pattern="\d{16}"><br>
+            <input type="text" id="card-number" placeholder="e.g. 1234 5678 9123 0000" maxlength="19" pattern="^[0-9 ]{19}$"><br>
           </div>
           <div class="error"> </div>
           </div>
@@ -62,21 +62,21 @@
           <div class="date-container">
             <div class="date-1">
               <div class="input-container">
-                <input id="mm" class="date" type="text" placeholder="MM" maxlength="2" pattern="[0-1][0-9]">
+                <input id="mm" class="date" type="text" placeholder="MM" maxlength="2" pattern="^(0?[1-9]|1[012])">
               </div>
               <div class="error"> </div>
             </div>
 
             <div class="date-1 date-yy">
               <div class="input-container">
-                <input id="yy" class="date" type="text" placeholder="YY" maxlength="2" pattern="\d\d">
+                <input id="yy" class="date" type="text" placeholder="YY" maxlength="2" pattern="[0-9][0-9]">
               </div>
               <div class="error" style="opacity: 0;"> </div>
             </div>
 
             <div class="date-2">
               <div class="input-container">
-                <input id="cvc" class="date" type="text" placeholder="e.g. 123" maxlength="3" pattern="\d{3}"><br>
+                <input id="cvc" class="date" type="text" placeholder="e.g. 123" maxlength="3" pattern="[0-9]{3}"><br>
               </div>
               <div class="error"> </div>
             </div>
@@ -92,7 +92,7 @@
         <img class="common" src="./images/icon-complete.svg" alt="icon complete">
         <h2 class="common">Thank you!</h2>
         <p class="text-completed common">We've added your card details</p>
-        <button type="button" class="btn-continue"><span class="continue">Continue</span></button>
+        <button type="submit" class="btn-continue"><span class="continue">Continue</span></button>
       </div>
     </div>
 

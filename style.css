@@ -56,10 +56,9 @@ body{
 }
 
 .card-number{
-    display: flex;
-    justify-content: space-between;
     margin-bottom: 25px;
     margin-top: -15px;
+
 }
 
 .card-name{
@@ -151,8 +150,6 @@ input::-moz-placeholder{
     padding-left: 4%;
 }
 
-/* Modifier le nouveau contenu dans le desktop */
-
 input[type=text], input[type=number] {
     width: 100%;
     padding: 15px 20px;
@@ -166,7 +163,6 @@ input[type=text], input[type=number] {
     font-size: 1rem;
     outline: none;
   }
-
 
 .input-container{
     width: 100%;
@@ -280,8 +276,6 @@ form{
     color: var(--clr-white);
     width: 80%;
     padding: 15px 25px;
-    /* padding-left: 50%; */
-    /* transform: translateX(-50%); */
     border-radius: 10px;
     font-weight: 500;
     font-family: 'Space Grotesk', sans-serif;
@@ -295,11 +289,9 @@ form{
     display: flex;
     justify-content: center;
     align-items: center;
-    /* width: 100%; */
-
-    
-    /* margin-right: 75px; */
 }
+
+
 /* Desktop version */
 
 @media only screen and (min-width: 1000px){
@@ -341,13 +333,9 @@ form{
         align-items: center;
         padding-left: 20% ;
         padding-top: 10%;
-        /* background-color: blue; */
-
-        /* Il faut qu'on ajoute ces paddings avant l'envoi du formulaire */
     }
 
     .completed{
-        /* background-color: red; */
         position: absolute;
         right:40%;
     }
@@ -355,10 +343,6 @@ form{
     .btn-continue{
         padding: 7px 100px;
     }
-
-    /* .input{
-        background-color: purple;
-    } */
 
     input[type=text], input[type=number] {
         width: 100%;
@@ -380,7 +364,6 @@ form{
     .input-container{
         width: 60%;
     }
-
 
     input::placeholder{
         font-size: 0.875rem;
